@@ -1,6 +1,7 @@
 package lt.codeacademy.javau8.library.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,11 @@ public class BookService {
 
 	public Book save(Book book) {
 		return repo.save(book);	
+	}
+
+	public Optional<Book> findById(long id) {
+		
+		return repo.findById(id);
 	}
 	
 }

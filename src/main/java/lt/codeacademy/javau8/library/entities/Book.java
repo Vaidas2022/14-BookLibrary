@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Book {
@@ -12,8 +13,13 @@ public class Book {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	Long id;
 	
+	@NotBlank(message = "Title is mandatory")
 	String title;
+	
+	@NotBlank(message = "Author is mandatory")
 	String author;
+	
+	@NotBlank(message = "Year is mandatory")
 	String year;
 	
 	public Book() {}
