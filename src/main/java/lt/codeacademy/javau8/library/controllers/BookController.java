@@ -53,4 +53,27 @@ public class BookController {
         model.addAttribute("book", book);
         return "update-book";
     }
+    
+    @PostMapping("/update/{id}")
+    public String updateBook(@PathVariable("id") long id, @Valid Book book, 
+      BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            book.setId(id);
+            return "update-book";
+        }
+            
+        service.save(book);
+        return "redirect:/index";
+    }
+    
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable("id") long id, Model model) {
+        Book book = service.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
+              
+        service.delete(book);
+        return "redirect:/index";
+    }
+    
+    
 }

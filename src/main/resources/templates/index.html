@@ -2,15 +2,17 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Insert title here</title>
+  <title>Library</title>
+  <link rel="stylesheet" 
+  href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
 </head>
 <body>
 
-  <div th:switch="${books}">
+  <div th:switch="${books}" class="container mt-4">
 	<h2 th:case="null">We have no books in the library yet!</h2>
 	   <div th:case="*">
 		   <h2>Books in the library</h2>
-		   <table>
+		   <table class="table table-stripped">
 			  <thead>
 				<tr>
 					<th>Title</th>
@@ -25,13 +27,13 @@
 					  <td th:text="${book.title}"></td>
 					  <td th:text="${book.author}"></td>
 					  <td th:text="${book.year}"></td>
-					  <td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
-					  <td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+					  <td><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-primary">Edit</a></td>
+					  <td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 				  </tr>
 			  </tbody>
 		   </table>		   
 	   </div>	
-	   <p><a href="/add">Add a new book</a></p>
+	   <p><a href="/add" class="btn btn-success">Add a new book</a></p>
   </div>
 
 </body>

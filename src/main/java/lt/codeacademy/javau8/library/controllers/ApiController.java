@@ -29,7 +29,7 @@ public class ApiController {
 	
 	@GetMapping("/all")
 	public List<Book> getAllBooks(){
-		return service.getAllBooks();
+		return service.getAllBooks();		
 	}
 	
 	@PostMapping("/add")

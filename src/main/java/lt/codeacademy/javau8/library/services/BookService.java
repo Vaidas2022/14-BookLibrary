@@ -29,5 +29,10 @@ public class BookService {
 		
 		return repo.findById(id);
 	}
+
+	public void delete(Book book) {
+		repo.delete(book);
+		
+	}
 	
 }
